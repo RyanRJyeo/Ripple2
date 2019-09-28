@@ -1,0 +1,230 @@
+/*Settings for printing*/
+@media print {
+
+ 		.Noir, .Blanc, .colorPicker, span{
+ 			display:none !important;
+ 		}
+
+ 		body{
+ 			background-color: white !important;
+ 		}
+
+
+ 		button{
+ 		 display:none !important;
+ 		}
+
+
+		.playBox{
+			width: 100% !important;
+			margin: 0 !important;
+		}
+}
+
+/*Background color*/
+body{
+	font-family: 'Montserrat', sans-serif !important;
+	background-color: #EDEFEC !important;
+}
+
+
+
+/*Title*/
+header{
+	margin-top: 5%;
+	text-align: center;
+}
+
+h1{
+	display: inline-block;
+	width: 20%;
+	font-size: 40px;
+}
+
+.Noir{
+	text-align: right;
+}
+
+span{
+	font-size: 40px;
+	color: #444444;
+}
+
+.Blanc{
+	text-align: left;
+}
+
+
+
+/*Info button*/
+.showcase{
+	text-align: center;
+	margin-top: 2%;
+}
+
+.noir2{
+	background-color: #444444;
+	border: 2px solid #EDEFEC;
+	color: white;
+	padding: 10px 20px;
+	transition: 0.8s;
+	border-radius: 5px;
+}
+
+.noir2:hover{
+	background-color: #EDEFEC;
+	border: 2px solid #444444;
+	color: #444444;
+	padding: 10px 20px;
+	transition: 0.8s;
+	border-radius: 5px;
+}
+
+.noir2:focus {
+	outline-color: #444444;
+
+}
+
+
+/*Color picker button*/
+.colorPicker{
+	text-align: center;
+}
+
+
+
+/*Utility buttons*/
+.utiButt{
+	display: flex;
+	justify-content: center;
+	margin-top: 2%;
+}
+
+.noir{
+	background-color: #444444;
+	border: 2px solid #EDEFEC;
+	color: white;
+	padding: 10px;
+	width: 150px;
+	transition: 0.8s;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+.noir:hover{
+	background-color: #EDEFEC;
+	border: 2px solid #444444;
+	color: #444444;
+	transition: 0.8s;
+}
+
+.noir:focus {
+	outline-color: #444444;
+}
+
+
+/*PlayBox Area*/
+
+.playBox{
+	margin: 5% auto;
+	border: 5px solid #616161;
+	border-radius: 5px;
+	width: 70%;
+}
+
+.playArea{
+	display: flex;
+	width: 100%;
+	margin: auto;
+	height: 45vh;
+}
+
+.playAreaBottom{
+	display: flex;
+	flex-direction: row;
+	transform: rotateX(180deg);
+	width: 100%;
+	margin: auto;
+	height: 45vh;
+}
+
+
+.playBoard{
+	padding: 0;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/*Enlarging the original drawboard, and remove this ID later when duplicating the drawboard*/
+#large{
+	width: 100%;
+	height: 200%;
+	z-index: 1;
+}
+
+
+.boardCopy{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.boardCopy2{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.boardCopy3{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/*The dimensions of the pixel*/
+.pixels{
+	width: 2%;
+	height: 2%;
+	display: inline-block;
+	background-color: black;
+}
+
+/*Coloring the pixel*/
+.white-color{
+	background-color: white;
+}
+
+/*Global class to hide or reveal stuff*/
+.hidden{
+	display: none;
+}
+
+
+/*Responsive display*/
+@media (max-width: 750px ){
+		.playBox{
+			width: 90%;
+		}
+};

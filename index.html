@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Noir|Blanc</title>
+</head>
+<body class="noir3">
+
+    <header>
+        <h1 class="Noir">Noir</h1><span>|</span><h1 class="Blanc">Blanc</h1>
+    </header>
+
+    <div class="showcase">
+        <button class="info noir2">?</button>
+    </div>
+
+    <div class="utiButt">
+        <button class="reset noir hidden">Reset Board</button>
+        <button class="jscolor {valueElement:'chosen-value', onFineChange:'pencilColor(this)'} noir hidden colorPicker">
+            Pencil Color
+        </button>
+        <button class="jscolor {valueElement:'chosen-value', onFineChange:'colorBoard(this)'} noir hidden boardPicker">
+            Board Color
+        </button>
+        <button class="duplicate noir hidden">Duplicate Board</button>
+        <button class="playButton noir">Start</button>
+        <button class="printButton noir hidden" onclick="window.print()">Print</button>
+        <button class="reloadButton noir hidden" onclick="location.reload()">Replay</button>
+    </div>
+
+
+    <div class="playBox hidden">
+        <div class="playArea">
+            <div class="playBoard" id="large"></div>
+            <div class="boardCopy hidden"></div>
+        </div>
+        <div class="playAreaBottom">
+            <div class="boardCopy2 hidden"></div>
+            <div class="boardCopy3 hidden"></div>
+        </div>
+    </div>
+
+
+
+
+<script src="main.js"></script>
+<script src="jscolor.js"></script>
+</body>
+</html>
