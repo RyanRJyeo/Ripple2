@@ -245,6 +245,18 @@ span{
  			display:none !important;
  		}
 
+ 		body,html {
+		  margin:0 !important;
+		  padding:0 !important;
+		}
+
+		.playArea, .playAreaBottom, .playBoard, .boardCopy, .boardCopy2, .boardCopy3{
+			margin:0 !important;
+		  padding:0 !important;
+		  border: none !important;
+			box-shadow: none !important;
+		}
+
  		body{
  			background-color: white !important;
  		}
