@@ -1,44 +1,32 @@
-/*Settings for printing*/
-@media print {
-
- 		.Noir, .Blanc, .colorPicker, span{
- 			display:none !important;
- 		}
-
- 		body{
- 			background-color: white !important;
- 		}
-
-
- 		button{
- 		 display:none !important;
- 		}
-
-
-		.playBox{
-			width: 100% !important;
-			margin: 0 !important;
-		}
-}
-
 /*Background color*/
 body{
-	font-family: 'Montserrat', sans-serif !important;
-	background-color: #EDEFEC !important;
+	font-family: 'Montserrat', sans-serif ;
+	background-color: #EDEFEC;
+	-webkit-print-color-adjust: exact !important;
 }
 
 
 
 /*Title*/
 header{
-	margin-top: 5%;
+	margin: 5%;
 	text-align: center;
 }
 
 h1{
+	color: #616161;
+	border-radius: 50%;
 	display: inline-block;
-	width: 20%;
+	padding: 5px;
+	width: 200px;
 	font-size: 40px;
+	transition: 1s;
+}
+
+h1:hover{
+	color: #EDEFEC;
+	background-color: #616161;
+	transition: 1s;
 }
 
 .Noir{
@@ -46,6 +34,7 @@ h1{
 }
 
 span{
+	display: inline-block;
 	font-size: 40px;
 	color: #444444;
 }
@@ -85,10 +74,26 @@ span{
 
 }
 
+.carousel-board{
+	width: 70%;
+	margin: 5% auto;
+	-webkit-transition: opacity 1000ms linear;
+	transition: 1.5s;
+}
 
-/*Color picker button*/
-.colorPicker{
-	text-align: center;
+.fadedOut{
+	opacity: 0;
+	display: none;
+	transition: 1.5s;
+}
+
+.caption{
+	background-color: rgba(71,71,71,0.9);
+	color: #EDEFEC;
+	font-family: 'Montserrat', sans-serif !important;
+	margin: 0;
+	padding: 5px;
+	border-radius: 5px;
 }
 
 
@@ -122,6 +127,11 @@ span{
 	outline-color: #444444;
 }
 
+/*Color picker button*/
+.colorPicker{
+	text-align: center;
+}
+
 
 /*PlayBox Area*/
 
@@ -129,14 +139,15 @@ span{
 	margin: 5% auto;
 	border: 5px solid #616161;
 	border-radius: 5px;
-	width: 70%;
+	width: 600px;
+	height: 600px;
 }
 
 .playArea{
 	display: flex;
 	width: 100%;
 	margin: auto;
-	height: 45vh;
+	height: 50%;
 }
 
 .playAreaBottom{
@@ -145,7 +156,7 @@ span{
 	transform: rotateX(180deg);
 	width: 100%;
 	margin: auto;
-	height: 45vh;
+	height: 50%;
 }
 
 
@@ -209,18 +220,55 @@ span{
 	height: 2%;
 	display: inline-block;
 	background-color: black;
+	border: none;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
 }
 
-/*Coloring the pixel*/
-.white-color{
-	background-color: white;
-}
+/*.pixels:after{
+    content: '.';
+    visibility: hidden;
+}*/
 
 /*Global class to hide or reveal stuff*/
 .hidden{
 	display: none;
 }
 
+
+
+/*Settings for printing*/
+@media print {
+
+ 		.Noir, .Blanc, .colorPicker, header, span, .carousel-board{
+ 			display:none !important;
+ 		}
+
+ 		body{
+ 			background-color: white !important;
+ 		}
+
+
+ 		button{
+ 		 display:none !important;
+ 		}
+
+
+		.playBox{
+			width: 100% !important;
+			height: 60vh !important;
+			margin: 0 !important;
+		}
+
+		.pixels{
+			margin: 0 !important;
+			padding: 0 !important;
+		}
+
+
+
+}
 
 /*Responsive display*/
 @media (max-width: 750px ){

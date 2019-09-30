@@ -9,6 +9,7 @@ var generateBoard = function(){
 
                 button.setAttribute("name", unique_name);
                 button.setAttribute("class", 'pixels');
+                //button.innerText = ".";
                 button.addEventListener("mouseover", colorThis, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
@@ -35,6 +36,20 @@ var colorThis = function(event){
 }
 //Generating the board
 generateBoard();
+
+
+//Info Buttons
+var showInfo = function(){
+    document.querySelector(".carousel-board").classList.remove("hidden");
+    document.querySelector(".close-button").classList.remove("hidden");
+    document.querySelector(".info").classList.add("hidden");
+}
+
+var closeInfo = function(){
+    document.querySelector(".carousel-board").classList.add("hidden");
+    document.querySelector(".close-button").classList.add("hidden");
+    document.querySelector(".info").classList.remove("hidden");
+}
 
 
 //Start Button
@@ -103,8 +118,10 @@ var copyBoard = function(){
 }
 
 var duplicate = function(){
-    document.querySelectorAll(".hidden").forEach(x=>{x.classList.remove("hidden");});
     document.getElementById('large').removeAttribute("id");
+    document.querySelector(".boardCopy").classList.remove("hidden");
+    document.querySelector(".boardCopy2").classList.remove("hidden");
+    document.querySelector(".boardCopy3").classList.remove("hidden");
     document.querySelector(".printButton").classList.remove("hidden");
     document.querySelector(".reloadButton").classList.remove("hidden");
     document.querySelector(".colorPicker").classList.add("hidden");
@@ -115,3 +132,127 @@ var duplicate = function(){
 }
 document.querySelector(".duplicate").addEventListener("click", duplicate);
 document.querySelector(".duplicate").addEventListener("click", copyBoard);
+
+
+
+var screenshot = new Vue({
+  el: "#screenshot",
+
+  data: {
+    crossHairsLeft: 0,
+    crossHairsTop: 0,
+    startX: 0,
+    startY: 0,
+    isMouseDown: false,
+    isDraggingMouse: false
+  },
+  methods: {
+    move: function (event) {
+      var startY       = this.startY,
+          startX       = this.startX,
+          endX         = event.clientX,
+          endY         = event.clientY,
+          windowWidth  = window.innerWidth,
+          windowHeight = window.innerHeight;
+      this.crossHairsTop = event.clientY;
+      this.crossHairsLeft = event.clientX;
+      if (this.isMouseDown) {
+        if (endX >= startX && endY >= startY) {
+          this.isDragging = true;
+          this.borderWidth = startY + "px " + (windowWidth - endX) + "px " + (windowHeight - endY) + "px " + startX + "px";
+        }
+      }
+    },
+    mouseDown: function (event) {
+      this.startX = event.clientX;
+      this.startY = event.clientY;
+      this.isMouseDown = true;
+    }
+
+    methods: {
+      mouseUp: function (e) {
+        this.borderWidth = 0; // resetting the overlay
+
+        if (this.isDragging) {
+          // Don't take the screenshot unless the mouse moved somehow.
+          this.tookScreenShot = true;
+        }
+
+        this.isDragging = false;
+        this.mouseIsDown = false;
+
+        this.takeScreenshot();
+
+        }
+
+    }
+
+
+    methods: {
+      takeScreenshot: function () {
+        html2canvas(document.querySelector('body')).then(canvas => {
+          let croppedCanvas = document.createElement('canvas'),
+              croppedCanvasContext = croppedCanvas.getContext('2d');
+
+          croppedCanvas.width  = this.croppedImageWidth;
+          croppedCanvas.height = this.croppedImageHeight;
+
+          croppedCanvasContext.drawImage(canvas, this.startX, this.startY, this.croppedImageWidth, this.croppedImageHeight, 0, 0, this.croppedImageWidth, this.croppedImageHeight);
+
+          this.imageUrl = croppedCanvas.toDataURL();
+        });
+      }
+    }
+
+
+
+  }
+});
+
+
+
+
+
+//Screenshot function
+// var takeScreenShot = function() {
+//     html2canvas(document.querySelector(".playBox"), {
+//         scale: 10,
+//         onrendered: function (canvas) {
+//             var tempcanvas=document.createElement('canvas');
+//             tempcanvas.width=2100;
+//             tempcanvas.height=2100;
+//             var context=tempcanvas.getContext('2d');
+//             context.drawImage(canvas,0,0,900,900,0,0,2100,2100);
+//             var link=document.createElement("a");
+//             link.href=tempcanvas.toDataURL('image/jpg');   //function blocks CORS
+//             link.download = 'ripple.jpg';
+//             link.click();
+//         }
+//     });
+// }
+
+// var takeScreenShot = function() {
+
+//     var scaleBy = 5;
+//     var w = 1000;
+//     var h = 1000;
+//     var div = document.querySelector(".playButton");
+//     var canvas = document.createElement('canvas');
+//     canvas.width = w * scaleBy;
+//     canvas.height = h * scaleBy;
+//     canvas.style.width = w + 'px';
+//     canvas.style.height = h + 'px';
+//     var context = canvas.getContext('2d');
+//     context.scale(scaleBy, scaleBy);
+
+//     html2canvas(div, {
+//         canvas:canvas,
+//         onrendered: function (canvas) {
+//             theCanvas = canvas;
+//             document.body.appendChild(canvas);
+
+//             Canvas2Image.saveAsPNG(canvas);
+//             $(body).append(canvas);
+//         }
+//     });
+// };
