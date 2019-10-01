@@ -21,6 +21,7 @@ var generateBoard = function(){
                 button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
                 button.addEventListener("mouseup", endDraw, true);
+                button.addEventListener("touchmove", touchColor, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
@@ -54,6 +55,11 @@ var colorThis = function(event){
         console.log("Please mouse down on the draw-board!")
     }
 }
+var touchColor = function(event){
+        event.target.style.backgroundColor = colorPalete;
+}
+
+
 var endDraw = function(){
     draw = false;
 }
@@ -144,6 +150,7 @@ var copyBoard = function(){
     var remove = document.querySelectorAll(".pixels")
     remove.forEach(x=>{
         x.removeEventListener("mouseover", colorThis, true);
+        x.removeEventListener("touchmove", colorThis, true);
     });
 }
 
