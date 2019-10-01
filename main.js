@@ -21,7 +21,7 @@ var generateBoard = function(){
                 button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
                 button.addEventListener("mouseup", endDraw, true);
-                button.addEventListener("touchmove", touchColor, true);
+                button.addEventListener("ontouchmove", touchColor, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
@@ -175,7 +175,7 @@ document.querySelector(".duplicate").addEventListener("click", copyBoard);
 //     ripple.forEach(x=>{
 //         x.style.backgroundColor = boardColor;
 //         x.addEventListener("mouseover", colorThis, true);
-//         x.addEventListener("touchmove", colorThis, true);
+//         x.addEventListener("ontouchmove", colorThis, true);
 //     });
 //     document.querySelector(".boardCopy").classList.add("hidden");
 //     document.querySelector(".boardCopy2").classList.add("hidden");
