@@ -117,7 +117,7 @@ span{
 }
 
 .carousel-board{
-	width: 70%;
+	width: 50%;
 	margin: 5% auto;
 	opacity: 0;
 	-webkit-transition: 800ms linear;
