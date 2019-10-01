@@ -21,7 +21,9 @@ var generateBoard = function(){
                 button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
                 button.addEventListener("mouseup", endDraw, true);
-                button.addEventListener("ontouchmove", touchColor, true);
+                button.addEventListener("ontouchstart", startDraw, true);
+                button.addEventListener("ontouchmove", colorThis, true);
+                button.addEventListener("ontouchend", endDraw, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
