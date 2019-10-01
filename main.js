@@ -21,9 +21,7 @@ var generateBoard = function(){
                 button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
                 button.addEventListener("mouseup", endDraw, true);
-                button.addEventListener("touchstart", startDraw, true);
-                button.addEventListener("touchmove", colorThis, true);
-                button.addEventListener("touchend", endDraw, true);
+                button.addEventListener("touchmove", touchColor, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
@@ -60,8 +58,6 @@ var colorThis = function(event){
 var touchColor = function(event){
         event.target.style.backgroundColor = colorPalete;
 }
-
-
 var endDraw = function(){
     draw = false;
 }
@@ -124,9 +120,9 @@ var copyBoard = function(){
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
         clone.setAttribute("class", "pixels");
-        if(board[i].classList[1] === "white-color"){
-            clone.classList.add("white-color")
-        }
+        // if(board[i].classList[1] === "white-color"){
+        //     clone.classList.add("white-color")
+        // }
         boardCopy.appendChild( clone );
     }
     //bottom copy
@@ -134,18 +130,18 @@ var copyBoard = function(){
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
         clone.setAttribute("class", "pixels");
-        if(board[i].classList[1] === "white-color"){
-            clone.classList.add("white-color")
-        }
+        // if(board[i].classList[1] === "white-color"){
+        //     clone.classList.add("white-color")
+        // }
         boardCopy2.appendChild( clone );
     }
     var boardCopy3 = document.querySelector(".boardCopy3");
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
         clone.setAttribute("class", "pixels");
-        if(board[i].classList[1] === "white-color"){
-            clone.classList.add("white-color")
-        }
+        // if(board[i].classList[1] === "white-color"){
+        //     clone.classList.add("white-color")
+        // }
         boardCopy3.appendChild( clone );
     }
     //removing the mouseover event listener once the copy board function has been utilized
@@ -172,7 +168,25 @@ var duplicate = function(){
 document.querySelector(".duplicate").addEventListener("click", duplicate);
 document.querySelector(".duplicate").addEventListener("click", copyBoard);
 
-
+//Replay Button
+// var replayGame = function(){
+//     document.querySelector(".playBoard").setAttribute("id", "large");
+//     var ripple = document.querySelectorAll(".pixels");
+//     ripple.forEach(x=>{
+//         x.style.backgroundColor = boardColor;
+//         x.addEventListener("mouseover", colorThis, true);
+//         x.addEventListener("touchmove", colorThis, true);
+//     });
+//     document.querySelector(".boardCopy").classList.add("hidden");
+//     document.querySelector(".boardCopy2").classList.add("hidden");
+//     document.querySelector(".boardCopy3").classList.add("hidden");
+//     document.querySelector(".printButton").classList.add("hidden");
+//     document.querySelector(".reloadButton").classList.add("hidden");
+//     document.querySelector(".reset").classList.remove("hidden");
+//     document.querySelector(".duplicate").classList.remove("hidden");
+//     document.querySelector(".colorPicker").classList.remove("hidden");
+//     document.querySelector(".boardPicker").classList.remove("hidden");
+// }
 
 
 // //Screenshot function
