@@ -32,7 +32,7 @@ header{
 	padding: 5px;
 	font-size: 90px;
 	transition: 0.8s;
-	animation: text 3s 1;
+	animation: text 2.5s 1;
 }
 
 @keyframes text{
@@ -163,7 +163,7 @@ span{
 	border: 2px solid #EDEFEC;
 	color: white;
 	padding: 10px;
-	width: 150px;
+	width: 100px;
 	transition: 0.8s;
 	border-radius: 5px;
 	margin: 5px;
@@ -180,11 +180,19 @@ span{
 	outline-color: #444444;
 }
 
-/*Color picker button*/
-.colorPicker{
-	text-align: center;
+#rubber{
+	background-color: white;
+	border: 2px solid #444444;
+	color: #444444;
+	padding: 10px;
+	width: 100px;
+	border-radius: 5px;
+	margin: 5px;
 }
 
+#rubber:focus {
+	outline-color: #444444;
+}
 
 /*PlayBox Area*/
 
@@ -305,20 +313,18 @@ span{
 /*Settings for printing*/
 @media print {
 
- 		.Noir, .Blanc, .colorPicker, header, span, .carousel-board{
+ 		.Noir, .Blanc, .colorPicker, span, .carousel-board{
  			display:none !important;
+ 		}
+
+ 		header{
+ 			margin-top:5% !important;
+ 			font-size: 50px !important;
  		}
 
  		body,html {
 		  margin:0 !important;
 		  padding:0 !important;
-		}
-
-		.playArea, .playAreaBottom, .playBoard, .boardCopy, .boardCopy2, .boardCopy3{
-			margin:0 !important;
-		  padding:0 !important;
-		  border: none !important;
-			box-shadow: none !important;
 		}
 
  		body{
@@ -332,9 +338,10 @@ span{
 
 
 		.playBox{
-			width: 100% !important;
+			margin-top:2% !important;
+			margin-left: 5% !important;
+			width: 90% !important;
 			height: 60vh !important;
-			margin: 0 !important;
 		}
 
 		.pixels{

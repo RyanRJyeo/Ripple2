@@ -21,9 +21,7 @@ var generateBoard = function(){
                 button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
                 button.addEventListener("mouseup", endDraw, true);
-                button.addEventListener("ontouchstart", startDraw, true);
-                button.addEventListener("ontouchmove", colorThis, true);
-                button.addEventListener("ontouchend", endDraw, true);
+                button.addEventListener("touchmove", touchColor, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
@@ -40,11 +38,50 @@ var colorBoard = function(picker){
     })
     console.log("i changed the board!");
 }
+//Eraser color
+var erase = false;
+var eraseNow = function(){
+    var rubber = document.querySelector("#rubber");
+    if(erase == false){
+        erase = true;
+        rubber.style.backgroundColor = "#444444";
+        rubber.style.color = "white";
+        var toErase = document.querySelectorAll(".pixels");
+        toErase.forEach(x=>{
+            x.removeEventListener("mousedown", startDraw, true);
+            x.removeEventListener("mouseover", colorThis, true);
+            x.removeEventListener("mouseup", endDraw, true);
+            x.addEventListener("mouseover", erasing, true);
+        })
+    } else if (erase == true) {
+        erase = false;
+        rubber.style.backgroundColor = "white";
+        rubber.style.color = "#444444";
+        var toErase = document.querySelectorAll(".pixels");
+        toErase.forEach(x=>{
+            x.removeEventListener("mouseover", erasing, true);
+            x.addEventListener("mousedown", startDraw, true);
+            x.addEventListener("mouseover", colorThis, true);
+            x.addEventListener("mouseup", endDraw, true);
+        });
+    }
+}
+var erasing = function(event){
+    if (erase == true){
+        event.target.style.backgroundColor = boardColor;
+        console.log("I'm erasing!");
+    } else {
+        console.log("Please click the eraser button to start erasing!")
+    }
+}
 //Choosing the pencil color
 var draw = false
 var colorPalete = "white";
 var pencilColor = function(picker){
     colorPalete = "#" + picker.toString();
+}
+var touchColor = function(){
+    event.target.style.backgroundColor = colorPalete;
 }
 var startDraw = function(){
     draw = true
@@ -56,9 +93,6 @@ var colorThis = function(event){
     } else {
         console.log("Please mouse down on the draw-board!")
     }
-}
-var touchColor = function(event){
-        event.target.style.backgroundColor = colorPalete;
 }
 var endDraw = function(){
     draw = false;
@@ -96,6 +130,7 @@ var start = function(){
     document.querySelector(".reset").classList.remove("hidden");
     document.querySelector(".duplicate").classList.remove("hidden");
     document.querySelector(".colorPicker").classList.remove("hidden");
+    document.querySelector(".eraserPicker").classList.remove("hidden");
     document.querySelector(".boardPicker").classList.remove("hidden");
     document.querySelector(".playButton").classList.add("hidden");
 }
@@ -162,6 +197,7 @@ var duplicate = function(){
     document.querySelector(".printButton").classList.remove("hidden");
     document.querySelector(".reloadButton").classList.remove("hidden");
     document.querySelector(".colorPicker").classList.add("hidden");
+    document.querySelector(".eraserPicker").classList.add("hidden");
     document.querySelector(".boardPicker").classList.add("hidden");
     document.querySelector(".playButton").classList.add("hidden");
     document.querySelector(".reset").classList.add("hidden");
@@ -169,68 +205,3 @@ var duplicate = function(){
 }
 document.querySelector(".duplicate").addEventListener("click", duplicate);
 document.querySelector(".duplicate").addEventListener("click", copyBoard);
-
-//Replay Button
-// var replayGame = function(){
-//     document.querySelector(".playBoard").setAttribute("id", "large");
-//     var ripple = document.querySelectorAll(".pixels");
-//     ripple.forEach(x=>{
-//         x.style.backgroundColor = boardColor;
-//         x.addEventListener("mouseover", colorThis, true);
-//         x.addEventListener("ontouchmove", colorThis, true);
-//     });
-//     document.querySelector(".boardCopy").classList.add("hidden");
-//     document.querySelector(".boardCopy2").classList.add("hidden");
-//     document.querySelector(".boardCopy3").classList.add("hidden");
-//     document.querySelector(".printButton").classList.add("hidden");
-//     document.querySelector(".reloadButton").classList.add("hidden");
-//     document.querySelector(".reset").classList.remove("hidden");
-//     document.querySelector(".duplicate").classList.remove("hidden");
-//     document.querySelector(".colorPicker").classList.remove("hidden");
-//     document.querySelector(".boardPicker").classList.remove("hidden");
-// }
-
-
-// //Screenshot function
-// var takeScreenShot = function() {
-//     html2canvas(document.querySelector(".playBox"), {
-//         dpi:500,
-//         onrendered: function (canvas) {
-//             var tempcanvas=document.createElement('canvas');
-//             tempcanvas.width=2100;
-//             tempcanvas.height=2100;
-//             var context=tempcanvas.getContext('2d');
-//             context.drawImage(canvas,0,0,900,900,0,0,2100,2100);
-//             var link=document.createElement("a");
-//             link.href=tempcanvas.toDataURL('image/jpg');   //function blocks CORS
-//             link.download = 'ripple.jpg';
-//             link.click();
-//         }
-//     });
-// }
-
-// var takeScreenShot = function() {
-
-//     var scaleBy = 5;
-//     var w = 1000;
-//     var h = 1000;
-//     var div = document.querySelector(".playButton");
-//     var canvas = document.createElement('canvas');
-//     canvas.width = w * scaleBy;
-//     canvas.height = h * scaleBy;
-//     canvas.style.width = w + 'px';
-//     canvas.style.height = h + 'px';
-//     var context = canvas.getContext('2d');
-//     context.scale(scaleBy, scaleBy);
-
-//     html2canvas(div, {
-//         canvas:canvas,
-//         onrendered: function (canvas) {
-//             theCanvas = canvas;
-//             document.body.appendChild(canvas);
-
-//             Canvas2Image.saveAsPNG(canvas);
-//             $(body).append(canvas);
-//         }
-//     });
-// };
