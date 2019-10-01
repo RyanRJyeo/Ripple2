@@ -1,3 +1,12 @@
+//When title is pressed
+var titleButton = document.querySelector(".playTitle");
+var swoosh = function(){
+    titleButton.classList.add("small");
+    document.querySelector(".playPage").classList.remove("fade");
+}
+titleButton.addEventListener("click", swoosh);
+
+
 //Creating the pixel board
 var generateBoard = function(){
         //creating the board and giving them a name
@@ -9,7 +18,6 @@ var generateBoard = function(){
 
                 button.setAttribute("name", unique_name);
                 button.setAttribute("class", 'pixels');
-                //button.innerText = ".";
                 button.addEventListener("mouseover", colorThis, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
@@ -40,13 +48,13 @@ generateBoard();
 
 //Info Buttons
 var showInfo = function(){
-    document.querySelector(".carousel-board").classList.remove("hidden");
+    document.querySelector(".carousel-board").classList.remove("grow");
     document.querySelector(".close-button").classList.remove("hidden");
     document.querySelector(".info").classList.add("hidden");
 }
 
 var closeInfo = function(){
-    document.querySelector(".carousel-board").classList.add("hidden");
+    document.querySelector(".carousel-board").classList.add("grow");
     document.querySelector(".close-button").classList.add("hidden");
     document.querySelector(".info").classList.remove("hidden");
 }
@@ -78,10 +86,9 @@ document.querySelector(".reset").addEventListener("click", reset);
 
 
 //Duplicate Button
-var board;
 var copyBoard = function(){
     //Left side copy
-    board = document.querySelectorAll(".pixels");
+    var board = document.querySelectorAll(".pixels");
     var boardCopy = document.querySelector(".boardCopy");
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
@@ -134,10 +141,12 @@ document.querySelector(".duplicate").addEventListener("click", duplicate);
 document.querySelector(".duplicate").addEventListener("click", copyBoard);
 
 
-//Screenshot function
+
+
+// //Screenshot function
 // var takeScreenShot = function() {
 //     html2canvas(document.querySelector(".playBox"), {
-//         scale: 10,
+//         dpi:500,
 //         onrendered: function (canvas) {
 //             var tempcanvas=document.createElement('canvas');
 //             tempcanvas.width=2100;

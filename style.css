@@ -5,28 +5,60 @@ body{
 	-webkit-print-color-adjust: exact !important;
 }
 
+/*Cover Page*/
+.cover{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	height: 500px;
+}
 
 
+/*Play Page Below*/
 /*Title*/
 header{
 	margin: 5%;
 	text-align: center;
 }
 
-h1{
+.playTitle{
+	margin-top: 20%;
+	border-radius: 5%;
 	color: #616161;
-	border-radius: 50%;
+	width: 400px;
 	display: inline-block;
 	padding: 5px;
-	width: 200px;
-	font-size: 40px;
-	transition: 1s;
+	font-size: 90px;
+	transition: 0.8s;
+	animation: text 3s 1;
 }
 
-h1:hover{
+@keyframes text{
+
+	0%{
+		opacity: 0;
+		letter-spacing: 10px;
+	}
+
+	30%{
+		letter-spacing: 30px;
+		width: 600px;
+	}
+}
+
+.small{
+	margin-top: 0;
+	width: 200px;
+	font-size: 40px;
+	transition: 1.5s;
+}
+
+.playTitle:hover{
 	color: #EDEFEC;
 	background-color: #616161;
-	transition: 1s;
+	transition: 0.8s;
 }
 
 .Noir{
@@ -41,6 +73,16 @@ span{
 
 .Blanc{
 	text-align: left;
+}
+
+.playPage{
+	opacity: 1s linear;
+	transition: 2s;
+}
+
+.fade{
+	opacity: 0;
+	transition: 2s;
 }
 
 
@@ -78,13 +120,14 @@ span{
 	width: 70%;
 	margin: 5% auto;
 	-webkit-transition: opacity 1000ms linear;
-	transition: 1.5s;
+	transition: 0.5s;
 }
 
-.fadedOut{
+.grow{
+	width: 0;
 	opacity: 0;
-	display: none;
-	transition: 1.5s;
+	transition: 0.5s
+	margin: 0 auto;
 }
 
 .caption{
@@ -146,8 +189,9 @@ span{
 .playArea{
 	display: flex;
 	width: 100%;
-	margin: auto;
 	height: 50%;
+	margin: auto;
+	padding: 0;
 }
 
 .playAreaBottom{
@@ -155,19 +199,23 @@ span{
 	flex-direction: row;
 	transform: rotateX(180deg);
 	width: 100%;
-	margin: auto;
 	height: 50%;
+	margin: auto;
+	padding: 0;
 }
 
 
 .playBoard{
-	padding: 0;
 	display: flex;
 	justify-content: flex-end;
 	flex-wrap: wrap;
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
+	margin:0;
+  padding:0;
+  border: none;
+	box-shadow: none;
 }
 
 /*Enlarging the original drawboard, and remove this ID later when duplicating the drawboard*/
@@ -179,8 +227,6 @@ span{
 
 
 .boardCopy{
-	margin: 0;
-	padding: 0;
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: flex-end;
@@ -188,11 +234,13 @@ span{
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
+	margin:0;
+  padding:0;
+  border: none;
+	box-shadow: none;
 }
 
 .boardCopy2{
-	margin: 0;
-	padding: 0;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -200,11 +248,13 @@ span{
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
+	margin:0;
+  padding:0;
+  border: none;
+	box-shadow: none;
 }
 
 .boardCopy3{
-	margin: 0;
-	padding: 0;
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: flex-end;
@@ -212,6 +262,10 @@ span{
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
+	margin:0;
+  padding:0;
+  border: none;
+	box-shadow: none;
 }
 
 /*The dimensions of the pixel*/
@@ -258,7 +312,7 @@ span{
 		}
 
  		body{
- 			background-color: white !important;
+ 			background-color: 0 !important;
  		}
 
 
