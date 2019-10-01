@@ -139,6 +139,16 @@ span{
 	border-radius: 5px;
 }
 
+.infoCap{
+	background-color: rgba(71,71,71,0.95);
+	margin-bottom: 5%;
+}
+
+.infoCapSmall{
+	background-color: rgba(71,71,71,0.95);
+	text-align: left;
+}
+
 
 
 /*Utility buttons*/
