@@ -2,7 +2,7 @@
 var titleButton = document.querySelector(".playTitle");
 var swoosh = function(){
     titleButton.classList.add("small");
-    document.querySelector(".playPage").classList.remove("fade");
+    document.querySelector(".playPage").classList.remove("hidden");
 }
 titleButton.addEventListener("click", swoosh);
 
@@ -29,7 +29,7 @@ var generateBoard = function(){
 
 
 //Choosing the board color
-var boardColor;
+var boardColor = "black";
 var colorBoard = function(picker){
     boardColor = "#" + picker.toString();
     document.querySelectorAll(".pixels").forEach(x=>{
