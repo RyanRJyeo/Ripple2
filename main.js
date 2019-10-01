@@ -18,7 +18,9 @@ var generateBoard = function(){
 
                 button.setAttribute("name", unique_name);
                 button.setAttribute("class", 'pixels');
+                button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
+                button.addEventListener("mouseup", endDraw, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
@@ -27,34 +29,56 @@ var generateBoard = function(){
 
 
 //Choosing the board color
+var boardColor;
 var colorBoard = function(picker){
+    boardColor = "#" + picker.toString();
     document.querySelectorAll(".pixels").forEach(x=>{
-        x.style.backgroundColor = "#" + picker.toString();
+        x.style.backgroundColor = boardColor;
     })
     console.log("i changed the board!");
 }
 //Choosing the pencil color
+var draw = false
 var colorPalete = "white";
 var pencilColor = function(picker){
     colorPalete = "#" + picker.toString();
 }
+var startDraw = function(){
+    draw = true
+}
 var colorThis = function(event){
-    event.target.style.backgroundColor = colorPalete;
-    console.log("i entered!");
+    if (draw == true){
+        event.target.style.backgroundColor = colorPalete;
+        console.log("i entered!");
+    } else {
+        console.log("Please mouse down on the draw-board!")
+    }
+}
+var endDraw = function(){
+    draw = false;
 }
 //Generating the board
 generateBoard();
 
 
 //Info Buttons
+var infoBoard = document.querySelector(".carousel-board");
+var removeInfo = function(){
+    document.querySelector(".infoBoard").removeChild(infoBoard);
+}
+removeInfo();
+var getInfo = function(){
+    document.querySelector(".infoBoard").appendChild(infoBoard);
+}
 var showInfo = function(){
-    document.querySelector(".carousel-board").classList.remove("grow");
+    setTimeout(function(){infoBoard.style.opacity = '1';}, 800);
+    getInfo();
     document.querySelector(".close-button").classList.remove("hidden");
     document.querySelector(".info").classList.add("hidden");
 }
-
 var closeInfo = function(){
-    document.querySelector(".carousel-board").classList.add("grow");
+    infoBoard.style.opacity = '0';
+    setTimeout(function(){document.querySelector(".infoBoard").removeChild(infoBoard)}, 800);
     document.querySelector(".close-button").classList.add("hidden");
     document.querySelector(".info").classList.remove("hidden");
 }
@@ -74,7 +98,6 @@ document.querySelector(".playButton").addEventListener("click", start);
 
 
 //Reset Button
-var boardColor = "black"
 var reset = function(){
     var pixels = document.querySelectorAll(".pixels")
     pixels.forEach(x=>{

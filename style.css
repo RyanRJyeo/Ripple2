@@ -119,16 +119,16 @@ span{
 .carousel-board{
 	width: 70%;
 	margin: 5% auto;
-	-webkit-transition: opacity 1000ms linear;
-	transition: 0.5s;
+	opacity: 0;
+	-webkit-transition: 800ms linear;
 }
 
-.grow{
+/*.grow{
 	width: 0;
 	opacity: 0;
 	transition: 0.5s
 	margin: 0 auto;
-}
+}*/
 
 .caption{
 	background-color: rgba(71,71,71,0.9);
