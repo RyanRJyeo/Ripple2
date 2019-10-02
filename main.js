@@ -17,11 +17,13 @@ var generateBoard = function(){
                 var button = document.createElement("div");
 
                 button.setAttribute("name", unique_name);
-                button.setAttribute("class", 'pixels');
+                button.classList.add("pixels", "pixels1")
                 button.addEventListener("mousedown", startDraw, true);
                 button.addEventListener("mouseover", colorThis, true);
                 button.addEventListener("mouseup", endDraw, true);
+                button.addEventListener("touchstart", touchDraw, true);
                 button.addEventListener("touchmove", touchColor, true);
+                button.addEventListener("touchend", touchEnd, true);
                 document.querySelector('.playBoard').appendChild(button);
             }
         };
@@ -44,8 +46,7 @@ var eraseNow = function(){
     var rubber = document.querySelector("#rubber");
     if(erase == false){
         erase = true;
-        rubber.style.backgroundColor = "#444444";
-        rubber.style.color = "white";
+        rubber.style.opacity = 1;
         var toErase = document.querySelectorAll(".pixels");
         toErase.forEach(x=>{
             x.removeEventListener("mousedown", startDraw, true);
@@ -55,8 +56,7 @@ var eraseNow = function(){
         })
     } else if (erase == true) {
         erase = false;
-        rubber.style.backgroundColor = "white";
-        rubber.style.color = "#444444";
+        rubber.style.opacity = 0.3;
         var toErase = document.querySelectorAll(".pixels");
         toErase.forEach(x=>{
             x.removeEventListener("mouseover", erasing, true);
@@ -67,12 +67,8 @@ var eraseNow = function(){
     }
 }
 var erasing = function(event){
-    if (erase == true){
         event.target.style.backgroundColor = boardColor;
         console.log("I'm erasing!");
-    } else {
-        console.log("Please click the eraser button to start erasing!")
-    }
 }
 //Choosing the pencil color
 var draw = false
@@ -80,11 +76,8 @@ var colorPalete = "white";
 var pencilColor = function(picker){
     colorPalete = "#" + picker.toString();
 }
-var touchColor = function(){
-    event.target.style.backgroundColor = colorPalete;
-}
-var startDraw = function(){
-    draw = true
+var startDraw = function(event){
+    draw = true;
 }
 var colorThis = function(event){
     if (draw == true){
@@ -95,6 +88,22 @@ var colorThis = function(event){
     }
 }
 var endDraw = function(){
+    draw = false;
+}
+var touchDraw = function(event){
+    draw = true;
+    event.preventDefault();
+}
+var path;
+var touchColor = function(event){
+    var touchPixels = document.querySelectorAll(".pixels");
+    if (draw == true){
+        event.target.style.backgroundColor = colorPalete;
+        event.preventDefault();
+        console.log("i touched!" + event.target);
+    }
+}
+var touchEnd = function(){
     draw = false;
 }
 //Generating the board
@@ -156,7 +165,7 @@ var copyBoard = function(){
     var boardCopy = document.querySelector(".boardCopy");
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
-        clone.setAttribute("class", "pixels");
+        clone.classList.add("pixels", "pixel2")
         // if(board[i].classList[1] === "white-color"){
         //     clone.classList.add("white-color")
         // }
@@ -166,7 +175,7 @@ var copyBoard = function(){
     var boardCopy2 = document.querySelector(".boardCopy2");
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
-        clone.setAttribute("class", "pixels");
+        clone.classList.add("pixels", "pixel3")
         // if(board[i].classList[1] === "white-color"){
         //     clone.classList.add("white-color")
         // }
@@ -175,7 +184,7 @@ var copyBoard = function(){
     var boardCopy3 = document.querySelector(".boardCopy3");
     for(i = 0; i < board.length; i++){
         var clone = board[i].cloneNode( true );
-        clone.setAttribute("class", "pixels");
+        clone.classList.add("pixels", "pixel4")
         // if(board[i].classList[1] === "white-color"){
         //     clone.classList.add("white-color")
         // }
@@ -205,3 +214,42 @@ var duplicate = function(){
 }
 document.querySelector(".duplicate").addEventListener("click", duplicate);
 document.querySelector(".duplicate").addEventListener("click", copyBoard);
+
+// //Replay Button
+// var replay = function(){
+//     //removing pixels from the drawboard and the duplicate boards too
+//     var removingPixels1 = document.querySelectorAll(".pixels1");
+//     for (i = 0; i < removingPixels1.length; i++){
+//         document.querySelector(".playBoard").removeChild(removingPixels1[i]);
+//     }
+//     var removingPixels2 = document.querySelectorAll(".pixels2");
+//     for (i = 0; i < removingPixels2.length; i++){
+//         document.querySelector(".boardCopy").removeChild(removingPixels2[i]);
+//     }
+//     var removingPixels3 = document.querySelectorAll(".pixels3");
+//     for (i = 0; i < removingPixels3.length; i++){
+//         document.querySelector(".boardCopy2").removeChild(removingPixels3[i]);
+//     }
+//     var removingPixels4 = document.querySelectorAll(".pixels4");
+//     for (i = 0; i < removingPixels4.length; i++){
+//         document.querySelector(".boardCopy3").removeChild(removingPixels4[i]);
+//     }
+//     //removing the duplicate boards
+//     document.querySelector(".boardCopy").classList.add("hidden");
+//     document.querySelector(".boardCopy2").classList.add("hidden");
+//     document.querySelector(".boardCopy3").classList.add("hidden");
+//     //removing the end game buttons
+//     document.querySelector(".printButton").classList.add("hidden");
+//     document.querySelector(".reloadButton").classList.add("hidden");
+//     document.querySelector(".playButton").classList.add("hidden");
+//     //adding back the playing mode buttons
+//     document.querySelector(".colorPicker").classList.remove("hidden");
+//     document.querySelector(".eraserPicker").classList.remove("hidden");
+//     document.querySelector(".boardPicker").classList.remove("hidden");
+//     document.querySelector(".reset").classList.remove("hidden");
+//     document.querySelector(".duplicate").classList.remove("hidden");
+//     //making the OG drawboard larger
+//     document.querySelector(".playBoard").setAttribute("id", "large");
+//     //generating back the OG pixels
+//     generateBoard();
+// }
