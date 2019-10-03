@@ -1,0 +1,296 @@
+body{
+	font-family: 'Montserrat', sans-serif;
+	background-color: #EDEFEC;
+}
+
+header{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin-top: 5%;
+}
+
+
+/*Title button effects*/
+.playTitle{
+	margin-top: 10%;
+	border-radius: 5%;
+	color: #616161;
+	width: 400px;
+	display: inline-block;
+	padding: 5px;
+	font-size: 90px;
+	transition: 0.8s;
+	animation: text 2.5s 1;
+}
+@keyframes text{
+	0%{
+		opacity: 0;
+		letter-spacing: 10px;
+	}
+	30%{
+		letter-spacing: 30px;
+		width: 600px;
+	}
+}
+.small{
+	margin-top: 0;
+	width: 200px;
+	font-size: 40px;
+	transition: 1.5s;
+}
+
+/*Info Buttons*/
+.infoButts{
+	display: flex;
+	justify-content: center;
+}
+.noir2{
+	background-color: #444444;
+	border: 2px solid #EDEFEC;
+	border-radius: 5px;
+	color: white;
+	padding: 10px 20px;
+	margin-top: 5%;
+	transition: 0.8s;
+}
+.noir2:hover{
+	background-color: #EDEFEC;
+	border: 2px solid #444444;
+	color: #444444;
+	padding: 10px 20px;
+	transition: 0.8s;
+	border-radius: 5px;
+}
+.noir2:focus {
+	outline-color: #444444;
+
+}
+
+/*Carousel board*/
+.carousel-board{
+	width: 50%;
+	margin: 5% auto;
+	opacity: 0;
+	-webkit-transition: 800ms linear;
+}
+.caption{
+	background-color: rgba(71,71,71,0.9);
+	color: #EDEFEC;
+	font-family: 'Montserrat', sans-serif !important;
+	margin: 0;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+
+/*Utility Buttons*/
+.utiButts{
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
+
+.noir{
+	background-color: #444444;
+	border: 2px solid #EDEFEC;
+	color: white;
+	padding: 1%;
+	margin: 2%;
+	width: 150px;
+	transition: 0.8s;
+	border-radius: 5px;
+}
+
+.noir:hover{
+	background-color: #EDEFEC;
+	border: 2px solid #444444;
+	color: #444444;
+	transition: 0.8s;
+}
+
+.noir:focus {
+	outline-color: #444444;
+}
+
+#rubber{
+	background-color: #444444;
+	border: 2px solid #444444;
+	border-radius: 5px;
+	color: white;
+	padding: 1%;
+	margin: 2%;
+	width: 150px;
+	border-radius: 5px;
+	opacity: 0.3;
+}
+
+#rubber:focus {
+	outline-color: #444444;
+}
+
+
+/*Drawing Area*/
+.playArea{
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	opacity: 1s linear;
+	transition: 1.5s
+}
+
+.drawAreaTop{
+	margin: 0;
+	padding: 0;
+	margin-bottom: -3%;
+	bottom: 5%;
+	display: flex;
+	flex-direction: row;
+}
+
+.drawAreaBottom{
+	margin: 0;
+	padding: 0;
+	transform: rotateX(180deg);
+	display: flex;
+	flex-direction: row;
+}
+
+#playboard{
+	border: 5px solid #616161;
+	border-radius: 5px;
+	width: 600px;
+	height: 600px;
+	margin: 0;
+	padding: 0;
+}
+
+.sketchpad2{
+	margin: 0;
+	padding: 0;
+	-webkit-transform: scaleX(-1);
+	height: 50%;
+	width: 50%;
+}
+
+.sketchpad3{
+	margin: 0;
+	padding: 0;
+	height: 50%;
+	width: 50%;
+}
+
+.sketchpad4{
+	margin: 0;
+	padding: 0;
+	-webkit-transform: scaleX(-1);
+	height: 50%;
+	width: 50%;
+}
+
+
+.hidden{
+	display: none;
+}
+
+.fade{
+	opacity: 0
+}
+
+
+/*Responsive*/
+@media(max-width: 750px){
+
+	.playTitle{
+		margin-top: 20%;
+		border-radius: 5%;
+		color: #616161;
+		width: 400px;
+		display: inline-block;
+		padding: 5px;
+		font-size: 60px;
+		transition: 0.8s;
+		animation: text 2.5s 1;
+	}
+
+	.small{
+		margin-top: 0;
+		width: 200px;
+		font-size: 30px;
+		transition: 1.5s;
+	}
+
+	.carousel-board{
+		width: 80%;
+		margin: 5% auto;
+		opacity: 0;
+		-webkit-transition: 800ms linear;
+	}
+	.noir{
+		background-color: #444444;
+		border: 2px solid #EDEFEC;
+		border-radius: 5px;
+		font-size: 7px;
+		color: white;
+		padding: 1%;
+		margin: 2%;
+		width: 50px;
+		transition: 0.8s;
+	}
+	#rubber{
+		background-color: #444444;
+		border: 2px solid #444444;
+		border-radius: 5px;
+		font-size: 7px;
+		color: white;
+		padding: 1%;
+		margin: 2%;
+		width: 50px;
+		opacity: 0.3;
+	}
+	.playArea{
+		display: flex;
+		justify-content: center;
+	}
+	.drawAreaTop{
+		margin: 0;
+		padding: 0;
+		margin-bottom: -5.5%;
+		bottom: 5%;
+		display: flex;
+		flex-direction: row;
+	}
+	#playboard{
+		border: 5px solid #616161;
+		border-radius: 5px;
+		width: 300px;
+		height: 300px;
+	}
+}
+
+/*Settings for printing*/
+@media print {
+ 		.Noir, .Blanc, .colorPicker, span, .carousel-board{
+ 			display:none !important;
+ 		}
+ 		header{
+ 			margin-top:5% !important;
+ 			font-size: 50px !important;
+ 		}
+ 		body,html {
+		  margin:0 !important;
+		  padding:0 !important;
+		}
+ 		body{
+ 			background-color: white !important;
+ 		}
+ 		button{
+ 		 display:none !important;
+ 		}
+		#playboard{
+			margin-top:2% !important;
+			width: 90% !important;
+			height: 62vh !important;
+		}
+}
