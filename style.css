@@ -4,8 +4,12 @@ body{
 }
 
 header{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	text-align: center;
 	margin-top: 5%;
 }
@@ -20,8 +24,21 @@ header{
 	display: inline-block;
 	padding: 5px;
 	font-size: 90px;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
 	transition: 0.8s;
-	animation: text 2.5s 1;
+	-webkit-animation: text 2.5s 1;
+	        animation: text 2.5s 1;
+}
+@-webkit-keyframes text{
+	0%{
+		opacity: 0;
+		letter-spacing: 10px;
+	}
+	30%{
+		letter-spacing: 30px;
+		width: 600px;
+	}
 }
 @keyframes text{
 	0%{
@@ -37,13 +54,19 @@ header{
 	margin-top: 0;
 	width: 200px;
 	font-size: 40px;
+	-webkit-transition: 1.5s;
+	-o-transition: 1.5s;
 	transition: 1.5s;
 }
 
 /*Info Buttons*/
 .infoButts{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 .noir2{
 	background-color: #444444;
@@ -52,6 +75,8 @@ header{
 	color: white;
 	padding: 10px 20px;
 	margin-top: 5%;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
 	transition: 0.8s;
 }
 .noir2:hover{
@@ -59,6 +84,8 @@ header{
 	border: 2px solid #444444;
 	color: #444444;
 	padding: 10px 20px;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
 	transition: 0.8s;
 	border-radius: 5px;
 }
@@ -86,8 +113,12 @@ header{
 
 /*Utility Buttons*/
 .utiButts{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	margin-top: 5%;
 }
 
@@ -98,6 +129,8 @@ header{
 	padding: 1%;
 	margin: 2%;
 	width: 150px;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
 	transition: 0.8s;
 	border-radius: 5px;
 }
@@ -106,6 +139,8 @@ header{
 	background-color: #EDEFEC;
 	border: 2px solid #444444;
 	color: #444444;
+	-webkit-transition: 0.8s;
+	-o-transition: 0.8s;
 	transition: 0.8s;
 }
 
@@ -132,11 +167,17 @@ header{
 
 /*Drawing Area*/
 .playArea{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	margin-top: 5%;
 	margin-bottom: 5%;
 	opacity: 1s linear;
+	-webkit-transition: 1.5s;
+	-o-transition: 1.5s;
 	transition: 1.5s
 }
 
@@ -145,16 +186,27 @@ header{
 	padding: 0;
 	margin-bottom: -3%;
 	bottom: 5%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 }
 
 .drawAreaBottom{
 	margin: 0;
 	padding: 0;
-	transform: rotateX(180deg);
+	-webkit-transform: rotateX(180deg);
+	        transform: rotateX(180deg);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 }
 
 #playboard{
@@ -210,14 +262,19 @@ header{
 		display: inline-block;
 		padding: 5px;
 		font-size: 60px;
+		-webkit-transition: 0.8s;
+		-o-transition: 0.8s;
 		transition: 0.8s;
-		animation: text 2.5s 1;
+		-webkit-animation: text 2.5s 1;
+		        animation: text 2.5s 1;
 	}
 
 	.small{
 		margin-top: 0;
 		width: 200px;
 		font-size: 30px;
+		-webkit-transition: 1.5s;
+		-o-transition: 1.5s;
 		transition: 1.5s;
 	}
 
@@ -236,6 +293,8 @@ header{
 		padding: 1%;
 		margin: 2%;
 		width: 50px;
+		-webkit-transition: 0.8s;
+		-o-transition: 0.8s;
 		transition: 0.8s;
 	}
 	#rubber{
@@ -250,16 +309,25 @@ header{
 		opacity: 0.3;
 	}
 	.playArea{
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		justify-content: center;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
 	}
 	.drawAreaTop{
 		margin: 0;
 		padding: 0;
 		margin-bottom: -5.5%;
 		bottom: 5%;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-direction: row;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
 	}
 	#playboard{
 		border: 5px solid #616161;
