@@ -1,3 +1,4 @@
+
 //Title Button
 var swoosh = function(){
     document.querySelector(".playTitle").classList.add("small");
@@ -58,8 +59,10 @@ var reset = function(){
 
 //Start Button
 var startGame = function(){
+    //Allowing user to draw
+    duplicate = false
     //Display Game Board
-    document.querySelector(".playArea").classList.remove("fade");
+    document.querySelector("#playboard").style.opacity = 1;
     //Display Utility Buttons
     document.querySelector(".reset").classList.remove("hidden");
     document.querySelector(".eraserPicker").classList.remove("hidden");
@@ -128,7 +131,7 @@ var settingDimensions = function(){
 settingDimensions();
 window.onresize = settingDimensions();
 var ctx = canvas.getContext('2d');
-var duplicate = false;
+var duplicate = true;
 function drawDot(ctx,x,y) {
     if (duplicate == true){
         return;
