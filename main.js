@@ -62,6 +62,7 @@ var startGame = function(){
     //Allowing user to draw
     duplicate = false
     //Display Game Board
+    document.querySelector(".playArea").style.opacity = 1;
     document.querySelector("#playboard").style.opacity = 1;
     //Display Utility Buttons
     document.querySelector(".reset").classList.remove("hidden");
@@ -119,6 +120,19 @@ var Duplicate = function(){
     document.querySelector(".duplicate").classList.add("hidden");
     document.querySelector(".playButton").classList.add("hidden");
 }
+
+// Print Button
+
+var saveImage = function(){
+domtoimage.toPng(document.getElementById('playboard'), { quality: 10 })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'ripple.png';
+        link.href = dataUrl;
+        link.click();
+    });
+}
+
 
 
 /////////////////////////////////////////////////
