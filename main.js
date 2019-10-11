@@ -4,6 +4,7 @@ var swoosh = function(){
     document.querySelector(".playTitle").classList.add("small");
     document.querySelector(".playPage").classList.remove("hidden");
 }
+document.body.addEventListener("touchstart", swoosh);
 
 //Info Buttons
 var infoBoard = document.querySelector(".carousel-board");
@@ -27,7 +28,7 @@ var closeInfo = function(){
     document.querySelector(".info").classList.remove("hidden");
 }
 //Choosing the board color
-var boardColor = "#EDEFEC";
+var boardColor = "white";
 var colorBoard = function(picker){
     boardColor = "#" + picker.toString();
     document.getElementById("playboard").style.backgroundColor = boardColor;
