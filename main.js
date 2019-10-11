@@ -4,7 +4,7 @@ var swoosh = function(){
     document.querySelector(".playTitle").classList.add("small");
     document.querySelector(".playPage").classList.remove("hidden");
 }
-document.body.addEventListener("touchstart", swoosh);
+// document.body.addEventListener("touchstart", swoosh);
 
 //Info Buttons
 var infoBoard = document.querySelector(".carousel-board");
