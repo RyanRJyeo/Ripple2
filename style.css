@@ -27,27 +27,21 @@ header{
 	-webkit-transition: 0.8s;
 	-o-transition: 0.8s;
 	transition: 0.8s;
-	-webkit-animation: text 2.5s 1;
-	        animation: text 2.5s 1;
+	-webkit-animation: text 2s infinite;
+	        animation: text 2s infinite;
 }
 @-webkit-keyframes text{
-	0%{
-		opacity: 0;
-		letter-spacing: 10px;
-	}
-	30%{
-		letter-spacing: 30px;
-		width: 600px;
+
+	50%{
+		letter-spacing: 20px;
+		width: 500px;
 	}
 }
 @keyframes text{
-	0%{
-		opacity: 0;
-		letter-spacing: 10px;
-	}
-	30%{
-		letter-spacing: 30px;
-		width: 600px;
+
+	50%{
+		letter-spacing: 20px;
+		width: 500px;
 	}
 }
 .small{

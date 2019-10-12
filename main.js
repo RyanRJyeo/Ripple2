@@ -2,6 +2,7 @@
 //Title Button
 var swoosh = function(){
     document.querySelector(".playTitle").classList.add("small");
+    document.querySelector(".playTitle").style.animation = "none";
     document.querySelector(".playPage").classList.remove("hidden");
 }
 // document.body.addEventListener("touchstart", swoosh);
